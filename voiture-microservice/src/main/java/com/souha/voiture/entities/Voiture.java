@@ -23,5 +23,6 @@ public class Voiture {
     private String couleur;
     private String typeCarburant;
     private String boiteVitesse;
+    private String codeMarque;
 
 }

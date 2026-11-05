@@ -10,6 +10,5 @@ public class MarqueDto {
     private Long id;
     private String nomMar;
     private String paysOrigine;
-    private String voitserie;
-    private String modele;
+    private String codeMarque;
 }

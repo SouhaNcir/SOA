@@ -1,28 +1,41 @@
 package com.souha.voiture.service;
 
+import com.souha.voiture.dto.APIResponseDto;
+import com.souha.voiture.dto.MarqueDto;
 import com.souha.voiture.dto.VoitureDto;
 import com.souha.voiture.entities.Voiture;
 import com.souha.voiture.repos.VoitureRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 
+@AllArgsConstructor
 @Service
-public class VoitureServiceImpl implements VoitureService{
-    @Autowired
-    VoitureRepository voitureRepository;
+public class VoitureServiceImpl implements VoitureService {
+
+    private VoitureRepository voitureRepository;
+    private APIClient apiClient;
 
     @Override
-    public VoitureDto getVoitureBySerie(String serie) {
-        Voiture voit = voitureRepository.findByVoitserie(serie);
+    public APIResponseDto getVoitureById(Long id) {
+        Voiture voit = voitureRepository.findById(id).get();
+
+        MarqueDto marqueDto = apiClient.getMarqueByCode(voit.getCodeMarque());
+
         VoitureDto voitureDto = new VoitureDto(
                 voit.getIdVoiture(),
                 voit.getModele(),
                 voit.getVoitserie(),
-                voit.getBoiteVitesse(),
                 voit.getCouleur(),
-                voit.getTypeCarburant()
+                voit.getTypeCarburant(),
+                voit.getBoiteVitesse(),
+                voit.getCodeMarque(),
+                marqueDto.getNomMar()
         );
-        return voitureDto;
+
+        APIResponseDto response = new APIResponseDto();
+        response.setVoitureDto(voitureDto);
+        response.setMarqueDto(marqueDto);
+        return response;
     }
 }

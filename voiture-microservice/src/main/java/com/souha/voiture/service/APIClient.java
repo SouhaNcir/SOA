@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "MARQUE")
 public interface APIClient {
-
-    @GetMapping("/api/marques/{marque-id}")
-    MarqueDto getMarqueById(@PathVariable("marque-id") Long marqueId);
+    @GetMapping("/api/marques/{code}")
+    MarqueDto getMarqueByCode(@PathVariable("code") String code);
 }

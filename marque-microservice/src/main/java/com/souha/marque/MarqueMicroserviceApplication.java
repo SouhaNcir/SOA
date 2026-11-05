@@ -6,10 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@EnableFeignClients
 @SpringBootApplication
 public class MarqueMicroserviceApplication {
 
@@ -20,34 +17,12 @@ public class MarqueMicroserviceApplication {
     @Bean
     CommandLineRunner commandLineRunner(MarqueRepository marqueRepository) {
         return args -> {
-
-            marqueRepository.save(
-                    Marque.builder()
-                            .nomMar("Toyota")
-                            .paysOrigine("Japon")
-                            .voitserie("V001")
-                            .build()
-            );
-
-            marqueRepository.save(
-                    Marque.builder()
-                            .nomMar("BMW")
-                            .paysOrigine("Allemagne")
-                            .voitserie("V002")
-                            .build()
-            );
-
-            marqueRepository.save(
-                    Marque.builder()
-                            .nomMar("Peugeot")
-                            .paysOrigine("France")
-                            .build()
-            );
+            marqueRepository.save(Marque.builder()
+                    .nomMar("Toyota").paysOrigine("Japon").codeMarque("M001").build());
+            marqueRepository.save(Marque.builder()
+                    .nomMar("BMW").paysOrigine("Allemagne").codeMarque("M002").build());
+            marqueRepository.save(Marque.builder()
+                    .nomMar("Peugeot").paysOrigine("France").codeMarque("M003").build());
         };
     }
-    @Bean
-    public WebClient webClient(){
-        return WebClient.builder().build();
-    }
-
 }

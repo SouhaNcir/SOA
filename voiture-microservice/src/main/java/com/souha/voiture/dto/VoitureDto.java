@@ -9,8 +9,10 @@ import lombok.NoArgsConstructor;
 public class VoitureDto {
     private Long idVoiture;
     private String modele;
-    private String Voitserie;
+    private String voitserie;
     private String couleur;
     private String typeCarburant;
     private String boiteVitesse;
+    private String codeMarque;
+    private String nomMar;
 }

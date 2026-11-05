@@ -18,5 +18,5 @@ public class Marque {
     private Long id;
     private String nomMar;
     private String paysOrigine;
-    private String voitserie;
+    private String codeMarque;
 }

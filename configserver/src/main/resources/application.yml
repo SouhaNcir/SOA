@@ -1,10 +1,13 @@
 spring:
+  rabbitmq:
+    host: "localhost"
+    port: 5672
+    username: "guest"
+    password: "guest"
   application:
     name: "configserver"
   profiles:
-    active : git
-   # active: native
-
+    active: git
   cloud:
     config:
       server:
@@ -12,11 +15,14 @@ spring:
           uri: https://github.com/SouhaNcir/config-repo.git
           default-label: main
           clone-on-start: true
-
-        #native:
-          #search-locations: "classpath:/config"
-       # search-locations: file:///C:\SOA\Souha-spring-cloud\config-repo
-
+        monitor:
+          validation-filter-enabled: false
 
 server:
   port: 9999
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
