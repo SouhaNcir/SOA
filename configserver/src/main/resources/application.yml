@@ -1,22 +1,17 @@
 spring:
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
   application:
     name: "configserver"
   profiles:
     active: git
   cloud:
+    bus:
+      enabled: false
     config:
       server:
         git:
           uri: https://github.com/SouhaNcir/config-repo.git
           default-label: main
           clone-on-start: true
-        monitor:
-          validation-filter-enabled: false
 
 server:
   port: 9999
@@ -26,3 +21,6 @@ management:
     web:
       exposure:
         include: '*'
+  health:
+    rabbit:
+      enabled: false

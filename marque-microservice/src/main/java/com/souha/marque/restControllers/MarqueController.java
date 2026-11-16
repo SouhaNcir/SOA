@@ -17,11 +17,11 @@ import lombok.AllArgsConstructor;
 public class MarqueController {
     private MarqueService marqueService;
 
-    @Value("${build.version}")
+    /*@Value("${build.version}")
     private String buildVersion;
 
     @Autowired
-    Configuration configuration;
+    Configuration configuration;*/
 
     public MarqueController(MarqueService marqueService) {
         this.marqueService = marqueService;
@@ -32,7 +32,7 @@ public class MarqueController {
         return new ResponseEntity<>(marqueService.getMarqueByCode(code), HttpStatus.OK);
     }
 
-    @GetMapping("/version")
+    /*@GetMapping("/version")
     public ResponseEntity<String> version() {
         return ResponseEntity.status(HttpStatus.OK).body(buildVersion);
     }
@@ -41,5 +41,5 @@ public class MarqueController {
     public ResponseEntity<String> retrieveAuthorInfo() {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(configuration.getName() + " " + configuration.getEmail());
-    }
+    }*/
 }

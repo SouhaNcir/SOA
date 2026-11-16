@@ -1,19 +1,14 @@
 package com.souha.voiture.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Data
+@Entity
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
 public class Voiture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,5 +19,8 @@ public class Voiture {
     private String typeCarburant;
     private String boiteVitesse;
     private String codeMarque;
-
+    private String nomMar;                 // seulement s'il existe déjà chez toi
+    private String emailResponsable;
+    private String mobileNumberResponsable;
+    private boolean communicationDone;
 }

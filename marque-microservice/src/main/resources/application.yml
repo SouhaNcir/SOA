@@ -2,11 +2,11 @@ server:
   port: 8081
 
 spring:
-  rabbitmq:
-    host: "localhost"
-    port: 5672
-    username: "guest"
-    password: "guest"
+  # rabbitmq:
+  # host: "localhost"
+  # port: 5672
+  # username: "guest"
+  # password: "guest"
   profiles:
     active: "prod"
   config:
@@ -34,6 +34,8 @@ eureka:
       defaultZone: ${DISCOVERY_SERVICE_URL:http://localhost:8761/eureka}
   instance:
     prefer-ip-address: true
+    hostname: localhost
+
 
 management:
   endpoints:

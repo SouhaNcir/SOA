@@ -15,4 +15,8 @@ public class VoitureDto {
     private String boiteVitesse;
     private String codeMarque;
     private String nomMar;
+    private String emailResponsable;
+    private String mobileNumberResponsable;
+
+
 }

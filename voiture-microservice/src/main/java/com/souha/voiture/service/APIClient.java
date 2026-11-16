@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "MARQUE")
+//@FeignClient(value = "MARQUE",fallback = marqFallback.class)
 public interface APIClient {
     @GetMapping("/api/marques/{code}")
     MarqueDto getMarqueByCode(@PathVariable("code") String code);

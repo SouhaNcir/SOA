@@ -21,7 +21,9 @@ public class VoitureMicroserviceApplication {
         return args -> {
             voitureRepository.save(Voiture.builder().modele("Corolla").voitserie("V001")
                     .couleur("Rouge").typeCarburant("Essence").boiteVitesse("Manuelle")
-                    .codeMarque("M001").build());
+                    .codeMarque("M001")
+                    .emailResponsable("john.doe@example.com")
+                    .mobileNumberResponsable("1234567890").build());
             voitureRepository.save(Voiture.builder().modele("Serie 3").voitserie("V002")
                     .couleur("Noire").typeCarburant("Diesel").boiteVitesse("Automatique")
                     .codeMarque("M002").build());
